@@ -13,10 +13,12 @@ if [ -d "$RELEASE_DIR" ]; then
   exit 1
 fi
 
+rm -rf "$TMP_DIR"
 mkdir -p "$TMP_DIR"
 
 curl -L "$DOWNLOAD_URL" -o "$ZIP_FILE"
 unzip -q "$ZIP_FILE" -d "$TMP_DIR/extracted"
+mv "$TMP_DIR/extracted/dashboards_out" "$TMP_DIR/extracted/dashboards"
 
 mkdir -p "$RELEASE_DIR"
 # Move extracted contents to release/$VERSION
