@@ -11,7 +11,7 @@ items:
   metadata:
     name: {{ printf "dashboard-kubernetes-mixin-%s" $dashboardName | trunc 63 | trimSuffix "-" }}
     labels:
-      grafana-dashboard: {{ $dashboardName }}
+{{/*      grafana-dashboard: {{ $dashboardName }}*/}}
       {{- include "kubernetes-mixin.labels" $ | nindent 6 }}
       {{- if $.Values.dashboards.labels }}
       {{- $.Values.dashboards.labels | toYaml | nindent 6 }}
