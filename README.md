@@ -47,7 +47,7 @@ dashboards: {}
 
 ### Adding Kubernetes Mixin Dashboards
 1. Run `./download.sh` so that `release/$VERSION/dashboards/*.json` exists (e.g. `release/1.4.0/dashboards/`).
-2. Copy (or symlink / vendor) those dashboard JSON files into your Helm chart directory (e.g. place them under `dashboards/kubernetes-mixin/`). The Grafana chart processes files referenced via `file:` relative to the chart root.
+2. Copy (or symlink / vendor) those dashboard JSON files into your Helm chart directory (e.g. place them under `https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/`). The Grafana chart processes files referenced via `file:` relative to the chart root.
 3. In your Grafana chart values, list each dashboard under a provider key (e.g. `kubernetes-mixin:`). Example with a few dashboards:
 
 ```yaml
@@ -55,11 +55,11 @@ dashboards: {}
 dashboards:
   kubernetes-mixin:
     apiserver:
-      file: dashboards/kubernetes-mixin/apiserver.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/apiserver.json
     controller-manager:
-      file: dashboards/kubernetes-mixin/controller-manager.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/controller-manager.json
     kubelet:
-      file: dashboards/kubernetes-mixin/kubelet.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/kubelet.json
 ```
 
 #### Full Dashboard Inventory (version 1.4.0)
@@ -92,51 +92,51 @@ Below is a verbose example adding every mixin dashboard. You can trim to what yo
 
 ```yaml
 dashboards:
-  kubernetes-mixin:
+  default:
     apiserver:
-      file: dashboards/kubernetes-mixin/apiserver.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/apiserver.json
     cluster-total:
-      file: dashboards/kubernetes-mixin/cluster-total.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/cluster-total.json
     controller-manager:
-      file: dashboards/kubernetes-mixin/controller-manager.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/controller-manager.json
     k8s-resources-cluster:
-      file: dashboards/kubernetes-mixin/k8s-resources-cluster.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-cluster.json
     k8s-resources-namespace:
-      file: dashboards/kubernetes-mixin/k8s-resources-namespace.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-namespace.json
     k8s-resources-node:
-      file: dashboards/kubernetes-mixin/k8s-resources-node.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-node.json
     k8s-resources-pod:
-      file: dashboards/kubernetes-mixin/k8s-resources-pod.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-pod.json
     k8s-resources-windows-cluster:
-      file: dashboards/kubernetes-mixin/k8s-resources-windows-cluster.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-windows-cluster.json
     k8s-resources-windows-namespace:
-      file: dashboards/kubernetes-mixin/k8s-resources-windows-namespace.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-windows-namespace.json
     k8s-resources-windows-pod:
-      file: dashboards/kubernetes-mixin/k8s-resources-windows-pod.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-windows-pod.json
     k8s-resources-workload:
-      file: dashboards/kubernetes-mixin/k8s-resources-workload.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-workload.json
     k8s-resources-workloads-namespace:
-      file: dashboards/kubernetes-mixin/k8s-resources-workloads-namespace.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-resources-workloads-namespace.json
     k8s-windows-cluster-rsrc-use:
-      file: dashboards/kubernetes-mixin/k8s-windows-cluster-rsrc-use.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-windows-cluster-rsrc-use.json
     k8s-windows-node-rsrc-use:
-      file: dashboards/kubernetes-mixin/k8s-windows-node-rsrc-use.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/k8s-windows-node-rsrc-use.json
     kubelet:
-      file: dashboards/kubernetes-mixin/kubelet.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/kubelet.json
     namespace-by-pod:
-      file: dashboards/kubernetes-mixin/namespace-by-pod.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/namespace-by-pod.json
     namespace-by-workload:
-      file: dashboards/kubernetes-mixin/namespace-by-workload.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/namespace-by-workload.json
     persistentvolumesusage:
-      file: dashboards/kubernetes-mixin/persistentvolumesusage.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/persistentvolumesusage.json
     pod-total:
-      file: dashboards/kubernetes-mixin/pod-total.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/pod-total.json
     proxy:
-      file: dashboards/kubernetes-mixin/proxy.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/proxy.json
     scheduler:
-      file: dashboards/kubernetes-mixin/scheduler.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/scheduler.json
     workload-total:
-      file: dashboards/kubernetes-mixin/workload-total.json
+      url: https://raw.githubusercontent.com/alekc/kubernetes-mixin-artifacts/refs/heads/master/release/1.4.0/workload-total.json
 ```
 
 Notes:
