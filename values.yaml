@@ -1,0 +1,9 @@
+# version of mixin to use
+mixinVersion: 1.4.0
+targetNamespace: ""
+dashboards:
+  annotations: {}
+  labels:
+    grafana_dashboard: "1"
+grafana:
+  folder: "Kubernetes Mixin Dashboards"

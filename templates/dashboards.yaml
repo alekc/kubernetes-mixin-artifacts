@@ -1,0 +1,31 @@
+---
+{{- $files := .Files.Glob "dashboards/*.json" }}
+{{- if $files }}
+apiVersion: v1
+kind: ConfigMapList
+items:
+{{- range $path, $fileContents := $files }}
+{{- $dashboardName := regexReplaceAll "(^.*/)(.*)\\.json$" $path "${2}" }}
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: {{ printf "dashboard-kubernetes-mixin-%s" $dashboardName | trunc 63 | trimSuffix "-" }}
+    labels:
+      grafana-dashboard: {{ $dashboardName }}
+      {{- include "kubernetes-mixin.labels" $ | nindent 4 }}
+      {{- if $.Values.dashboards.labels }}
+      {{- $.Values.dashboards.labels | toYaml | nindent 6 }}
+      {{- end }}
+    annotations:
+      grafana-folder: {{ $.Values.grafana.folder }}
+      {{- if $.Values.dashboards.annotations }}
+      {{- $.Values.dashboards.annotations | toYaml | nindent 6 }}
+      {{- end }}
+    {{- if $.Values.targetNamespace }}
+    namespace: {{ $.Values.targetNamespace }}
+    {{- end }}
+  data:
+    {{ $dashboardName }}.json: |-
+{{ $.Files.Get $path | indent 6}}
+{{- end }}
+{{- end }}
