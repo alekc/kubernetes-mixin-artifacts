@@ -4,7 +4,7 @@ set -euo pipefail
 VERSION="1.4.0"
 DOWNLOAD_URL="https://github.com/kubernetes-monitoring/kubernetes-mixin/releases/download/version-${VERSION}/kubernetes-mixin-version-{$VERSION}.zip"
 
-RELEASE_DIR="release/${VERSION}"
+RELEASE_DIR="files/${VERSION}"
 TMP_DIR=".tmp"
 ZIP_FILE="${TMP_DIR}/kubernetes-mixin.zip"
 
