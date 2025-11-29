@@ -1,0 +1,19 @@
+{
+  "extends": ["config:base"],
+  "description": "Renovate config for updating Kubernetes Mixin version in download.sh",
+  "packageRules": [
+    {
+      "matchFiles": ["download.sh"],
+      "matchStrings": [
+        "VERSION=\"(?<currentValue>.*?)\""
+      ],
+      "datasource": "github-releases",
+      "depName": "kubernetes-monitoring/kubernetes-mixin",
+      "versioning": "semver",
+      "extractVersion": "^VERSION=\\\"(?<version>.*)\\\"$",
+      "groupName": "kubernetes-mixin-version",
+      "prPriority": 1
+    }
+  ]
+}
+
