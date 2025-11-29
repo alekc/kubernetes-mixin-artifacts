@@ -4,6 +4,6 @@ targetNamespace: ""
 dashboards:
   annotations: {}
   labels:
-    grafana-dashboard: "1"
+    grafana_dashboard: "1"
 grafana:
   folder: "Kubernetes Mixin Dashboards"
