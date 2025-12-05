@@ -1,0 +1,15 @@
+{{- if .Values.rules.deploy }}
+{{- if eq .Values.rules.flavour "victoriametrics" }}
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMRule
+{{- else }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+{{- end }}
+metadata:
+  name: kubernetes-mixin-artifacts
+  labels:
+    {{- include "kubernetes-mixin.labels" $ | nindent 4 }}
+spec:
+  {{- .Files.Get (printf "files/%s/prometheus_rules.yaml" .Values.mixinVersion) | nindent 2 }}
+{{- end }}

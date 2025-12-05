@@ -5,5 +5,8 @@ dashboards:
   annotations: {}
   labels:
     grafana_dashboard: "1"
+rules:
+  deploy: true
+  flavour: "victoriametrics"
 grafana:
-  folder: "Kubernetes Mixin Dashboards"
+  folder: "Kubernetes Mixin Dashboards" # options: "prometheus", "victoriametrics"
