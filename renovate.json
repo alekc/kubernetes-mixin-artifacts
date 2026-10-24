@@ -1,19 +1,15 @@
 {
-  "extends": ["config:base"],
-  "description": "Renovate config for updating Kubernetes Mixin version in download.sh",
-  "packageRules": [
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Track the Kubernetes Mixin release pinned in download.sh",
+  "customManagers": [
     {
-      "matchFiles": ["download.sh"],
-      "matchStrings": [
-        "VERSION=\"(?<currentValue>.*?)\""
-      ],
-      "datasource": "github-releases",
-      "depName": "kubernetes-monitoring/kubernetes-mixin",
-      "versioning": "semver",
-      "extractVersion": "^VERSION=\\\"(?<version>.*)\\\"$",
-      "groupName": "kubernetes-mixin-version",
-      "prPriority": 1
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)download\\.sh$/"],
+      "matchStrings": ["VERSION=\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kubernetes-monitoring/kubernetes-mixin",
+      "extractVersionTemplate": "^version-(?<version>.+)$",
+      "versioningTemplate": "semver"
     }
   ]
 }
-
