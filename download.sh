@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VERSION="1.4.0"
+VERSION="1.5.6"
 DOWNLOAD_URL="https://github.com/kubernetes-monitoring/kubernetes-mixin/releases/download/version-${VERSION}/kubernetes-mixin-version-{$VERSION}.zip"
 
 RELEASE_DIR="release/${VERSION}"
